@@ -80,7 +80,6 @@ class MyVoucher extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    padding: 20,
     flex: 1,
     paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
   }

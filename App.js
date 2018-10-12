@@ -1,6 +1,13 @@
 import './global';
 import React from 'react';
 import { root } from './Router';
+import {
+  StyleSheet,
+  Platform,
+  Dimensions,
+  StatusBar,
+  View
+} from 'react-native';
 const Router = root;
 const {
   Wallet,
@@ -19,8 +26,8 @@ let apiConfig = {
 
 ///if you have privateKey then supply private key to create wallet or you can pass passphrase to create wallet
 let walletConfig = {
-  coinType: CoinType.BTC.symbol, //change for case LTC, DOGE, DASH
-  isTestNet: true,
+  coinType: CoinType.ETH.symbol, //change for case LTC, DOGE, DASH
+  isTestNet: false,
   privateKey:
     '0xfa002a9572da5e2fe400e9d57616213efa96720946d35d9c04ccff6bca43e3e4'
 };
@@ -38,3 +45,9 @@ export default class App extends React.Component {
     return <Router />;
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+  }
+});

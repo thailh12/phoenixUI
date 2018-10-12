@@ -19,9 +19,10 @@ import ListVoucher from './views/ListVoucher';
 
 const profile = createSwitchNavigator(
   {
-    Profile: Profile,
-    MyQR: MyQR,
-    ListVoucher: ListVoucher
+    Profile: {
+      screen: Profile
+    },
+    MyQR: MyQR
   },
   {
     initialRouteName: 'Profile'
@@ -46,7 +47,10 @@ export const auth = createBottomTabNavigator({
 });
 
 const voucher = createStackNavigator({
-  'My Voucher': MyVoucher,
+  'My Voucher': {
+    screen: MyVoucher,
+    navigationOptions: { header: null }
+  },
   'Scan Voucher': VoucherQR
 });
 

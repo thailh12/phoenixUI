@@ -104,15 +104,16 @@ class Home extends React.PureComponent {
         <View style={styles.Card}>
           <Card
             containerStyle={{
-              height: 200,
-              width: 200
+              height: 200
             }}
             image={require('../assets/cardImage11.jpg')}
           >
             <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
           </Card>
           <Card
-            containerStyle={{ height: 200, width: 200 }}
+            containerStyle={{
+              height: 200
+            }}
             image={require('../assets/cardImage11.jpg')}
           >
             <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
@@ -121,15 +122,16 @@ class Home extends React.PureComponent {
         <View style={styles.Card}>
           <Card
             containerStyle={{
-              height: 200,
-              width: 200
+              height: 200
             }}
             image={require('../assets/cardImage11.jpg')}
           >
             <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
           </Card>
           <Card
-            containerStyle={{ height: 200, width: 200 }}
+            containerStyle={{
+              height: 200
+            }}
             image={require('../assets/cardImage11.jpg')}
           >
             <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
@@ -143,8 +145,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
     paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+
+    // alignItems: 'center',
   },
   button: {
     flexDirection: 'row',
@@ -159,8 +162,7 @@ const styles = StyleSheet.create({
   Card: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: Dimensions.get('window').width
+    justifyContent: 'center'
   }
 });
 export default Home;

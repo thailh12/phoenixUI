@@ -1,5 +1,5 @@
 {
-  "name": "crna-and-web3",
+  "name": "Phoenix",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -21,10 +21,15 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "27.0.1",
+    "expo": "^30.0.1",
+    "node-infinito-wallet": "https://github.com/infinityblockchainlabs/node-infinito-wallet.git",
     "node-libs-browser": "2.1.0",
     "react": "16.3.1",
     "react-native": "0.55.2",
+    "react-native-elements": "^0.19.1",
+    "react-native-qrcode": "^0.2.7",
+    "react-native-snap-carousel": "^3.7.5",
+    "react-navigation": "^2.18.0",
     "web3": "1.0.0-beta.34"
   }
 }
