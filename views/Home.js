@@ -106,7 +106,9 @@ class Home extends React.PureComponent {
               itemWidth={sliderWidth}
             />
           </View>
-          <Text>Earn Point</Text>
+          <View style={{ alignItems: 'center' }}>
+            <Text>Earn Point</Text>
+          </View>
           <View style={styles.Card}>
             <Card
               containerStyle={{

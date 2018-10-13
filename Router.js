@@ -12,7 +12,7 @@ import Scan from './views/Scan';
 import Profile from './views/Profile';
 import Trading from './views/Trading';
 import SignIn from './views/Signin';
-import SignUp from './views/SignUp';
+//import SignUp from './views/SignUp';
 import History from './views/History';
 import MyVoucher from './views/MyVoucher';
 import UseVoucher from './views/UseVoucher';
@@ -20,6 +20,9 @@ import VoucherQR from './views/VoucherQR';
 import MyQR from './views/MyQR';
 import ListVoucher from './views/ListVoucher';
 import Login from './views/Login';
+import SigInSignUp from './screens/SignInSignUp';
+import SignUp from './screens/Signup';
+import Walkthrough from './screens/Walkthrough';
 let styles = StyleSheet.create({
   header: {
     backgroundColor: '#f48f42'
@@ -57,10 +60,14 @@ export const stack = createStackNavigator({
   ListVoucher: ListVoucher
 });
 export const auth = createStackNavigator({
-  Login: Login,
-  SignIn: SignIn,
-  SignUp: SignUp
+  Walkthrough: { screen: Walkthrough, navigationOptions: { header: null } },
+  SignInSignUp: SigInSignUp,
+  Signup: SignUp
 });
+// export const auth = createBottomTabNavigator({
+//   SignIn: SignIn,
+//   SignUp: SignUp
+// });
 
 const voucher = createStackNavigator({
   'My Voucher': {

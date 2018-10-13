@@ -10,8 +10,8 @@ class VoucherQR extends PureComponent {
     const data = this.props.navigation.getParam('params');
     return (
       <View style={styles.container}>
-        <QRCode value={data.code} size={200} bgColor="black" fgColor="white" />
-        <Text style={styles.qrcode}>{data.code}</Text>
+        <QRCode value={data} size={200} bgColor="black" fgColor="white" />
+        <Text style={styles.qrcode}>{data}</Text>
       </View>
     );
   }

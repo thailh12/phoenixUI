@@ -6,7 +6,8 @@ import {
   Platform,
   StatusBar,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 import UseVoucher from './UseVoucher';
@@ -29,27 +30,7 @@ class MyVoucher extends React.PureComponent {
         image: '',
         code: 'AKdjslkhflsak'
       },
-      {
-        id: '1',
-        title: 'Discount 30%',
-        require: '200 point',
-        image: '',
-        code: 'AKdj424slkhflsak'
-      },
-      {
-        id: '1',
-        title: 'Discount 30%',
-        require: '200 point',
-        image: '',
-        code: 'AK23523djslkhflsak'
-      },
-      {
-        id: '2',
-        title: 'Discount 10%',
-        require: '400 point',
-        image: '',
-        code: 'AKdjslkhrt345flsak'
-      },
+
       {
         id: '3',
         title: 'Discount 20%',
@@ -59,8 +40,21 @@ class MyVoucher extends React.PureComponent {
       }
     ]
   };
-  refresh() {
-    // call api to refresh
+  async refresh() {
+    let id = await AsyncStorage.getItem('user');
+    id = JSON.parse(id);
+    await fetch(`http://10.83.1.201:3001/customer/${id.userId}/voucher`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      res.json().then(result => {
+        console.log(result);
+        this.setState({ myvoucher: result });
+      });
+    });
   }
   render() {
     return (
@@ -72,11 +66,11 @@ class MyVoucher extends React.PureComponent {
                 key={item.id}
                 onPress={() =>
                   this.props.navigation.navigate('Scan Voucher', {
-                    params: 'sdasfas'
+                    params: item.code
                   })
                 }
               >
-                <HistoryItem onPress />
+                <HistoryItem />
               </TouchableOpacity>
             );
           })}

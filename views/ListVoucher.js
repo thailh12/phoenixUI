@@ -3,6 +3,7 @@ import { View, Text, Button, ScrollView } from 'react-native';
 import { Card } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 class ListVoucher extends PureComponent {
+  onGetVoucher() {}
   render() {
     return (
       <ScrollView>
@@ -20,7 +21,10 @@ class ListVoucher extends PureComponent {
               marginRight: 0,
               marginBottom: 0
             }}
-            title="VIEW NOW"
+            title="GET NOW"
+            onPress={() => {
+              this.onGetVoucher();
+            }}
           />
         </Card>
         <Card title="HELLO WORLD" image={require('../assets/cardImage11.jpg')}>
@@ -38,6 +42,9 @@ class ListVoucher extends PureComponent {
               marginBottom: 0
             }}
             title="VIEW NOW"
+            onPress={() => {
+              this.onGetVoucher();
+            }}
           />
         </Card>
         <Card title="HELLO WORLD" image={require('../assets/cardImage11.jpg')}>
@@ -55,6 +62,9 @@ class ListVoucher extends PureComponent {
               marginBottom: 0
             }}
             title="VIEW NOW"
+            onPress={() => {
+              this.onGetVoucher();
+            }}
           />
         </Card>
       </ScrollView>

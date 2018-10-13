@@ -1,22 +1,32 @@
-import React, { Component } from "react";
-import { Svg, Path } from "react-native-svg";
+import React, { Component } from 'react';
+import { Svg, Path } from 'react-native-svg';
 import {
   View,
   Image,
   Text,
   StyleSheet,
   ImageBackground,
-  TouchableOpacity
-} from "react-native";
+  TouchableOpacity,
+  TextInput
+} from 'react-native';
 
 export default class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: false,
+      email: false,
+      password: false,
+      confirmPass: false
+    };
+  }
   render() {
     return (
       <View style={styles.root}>
         <View style={styles.imageBg}>
           <View style={styles.bgScreen1}>
             <Image
-              source={require("../assets/261347d5fe290bc7e242a4e41c62f4571c635448.png")}
+              source={require('../assets/261347d5fe290bc7e242a4e41c62f4571c635448.png')}
               style={styles.bgScreen}
             />
           </View>
@@ -24,10 +34,10 @@ export default class Signup extends Component {
         <TouchableOpacity
           style={styles.button5}
           onPress={() => {
-            this.props.navigation.push("SignInSignUp");
+            this.props.navigation.push('SignInSignUp');
           }}
         >
-          <Svg
+          {/* <Svg
             viewBox="0 0 16.00 16.00"
             preserveAspectRatio="none"
             style={styles.shape}
@@ -38,11 +48,17 @@ export default class Signup extends Component {
               isClosed={true}
               d="M16.00 7.00 L3.80 7.00 L9.40 1.40 L8.00 0.00 L0.00 8.00 L8.00 16.00 L9.40 14.60 L3.80 9.00 L16.00 9.00 L16.00 7.00 L16.00 7.00 Z"
             />
-          </Svg>
+          </Svg> */}
         </TouchableOpacity>
         <View style={styles.buttonEmail}>
+          <TextInput
+            style={{ height: 40, padding: 10 }}
+            placeholder="Email"
+            onChangeText={email => this.setState({ email })}
+            underlineColorAndroid="transparent"
+          />
           <View style={styles.buttonBg} />
-          <Svg
+          {/* <Svg
             viewBox="0 0 24.00 18.00"
             preserveAspectRatio="none"
             style={styles.fill186}
@@ -55,12 +71,18 @@ export default class Signup extends Component {
               fillOpacity={0.6}
               strokeOpacity={0.6}
             />
-          </Svg>
+          </Svg> */}
         </View>
         <View style={styles.buttonUseName}>
+          <TextInput
+            style={{ height: 40, padding: 10 }}
+            placeholder="Name"
+            onChangeText={name => this.setState({ name })}
+            underlineColorAndroid="transparent"
+          />
           <View style={styles.buttonBg1} />
           <View style={styles.userName}>
-            <Svg
+            {/* <Svg
               viewBox="0 0 17.00 24.00"
               preserveAspectRatio="none"
               style={styles.fill177}
@@ -73,12 +95,18 @@ export default class Signup extends Component {
                 fillOpacity={0.6}
                 strokeOpacity={0.6}
               />
-            </Svg>
+            </Svg> */}
           </View>
         </View>
         <View style={styles.buttonPass}>
+          <TextInput
+            style={{ height: 40, padding: 10 }}
+            placeholder="Password"
+            onChangeText={password => this.setState({ password })}
+            underlineColorAndroid="transparent"
+          />
           <View style={styles.buttonBg2} />
-          <Svg
+          {/* <Svg
             viewBox="0 0 15.00 24.00"
             preserveAspectRatio="none"
             style={styles.fill174}
@@ -91,11 +119,17 @@ export default class Signup extends Component {
               fillOpacity={0.6}
               strokeOpacity={0.6}
             />
-          </Svg>
+          </Svg> */}
         </View>
         <View style={styles.buttonPassCopy}>
+          <TextInput
+            style={{ height: 40, padding: 10 }}
+            placeholder="Retype your password"
+            onChangeText={confirmPass => this.setState({ confirmPass })}
+            underlineColorAndroid="transparent"
+          />
           <View style={styles.buttonBg3} />
-          <Svg
+          {/* <Svg
             viewBox="0 0 18.00 13.51"
             preserveAspectRatio="none"
             style={styles.path2}
@@ -109,26 +143,25 @@ export default class Signup extends Component {
               fillOpacity={0.5}
               strokeOpacity={0.5}
             />
-          </Svg>
+          </Svg> */}
         </View>
         <View style={styles.buttonSignUp}>
           <ImageBackground
             style={styles.buttonBg4}
-            source={require("../assets/Gradient_OY1tFrL.png")} /*gradient: {"elipseLength":0,"from":{"x":"0.00","y":"1.00"},"gradientType":"LinearGradient","id":"78041F34-3D99-4EBE-AD6A-26D649C1AE5F","shouldSmoothenOpacity":false,"stops":[{"offset":0,"stopColor":"rgba(255,87,34,1)","style":{}},{"offset":1,"stopColor":"rgba(255,221,34,1)","style":{}}],"style":{},"to":{"x":"1.00","y":"0.00"}}*/
+            source={require('../assets/Gradient_OY1tFrL.png')} /*gradient: {"elipseLength":0,"from":{"x":"0.00","y":"1.00"},"gradientType":"LinearGradient","id":"78041F34-3D99-4EBE-AD6A-26D649C1AE5F","shouldSmoothenOpacity":false,"stops":[{"offset":0,"stopColor":"rgba(255,87,34,1)","style":{}},{"offset":1,"stopColor":"rgba(255,221,34,1)","style":{}}],"style":{},"to":{"x":"1.00","y":"0.00"}}*/
           />
           <Text style={styles.signUp}>SIGN UP</Text>
         </View>
-        <View style={styles.statusBarBg} />
         <View style={styles.logoMeterialThemeUiUx}>
           <Text style={styles.createYourAccount}>Create your account</Text>
         </View>
         <TouchableOpacity
           style={styles.button6}
           onPress={() => {
-            this.props.navigation.push("SignInSignUp");
+            this.props.navigation.push('SignInSignUp');
           }}
         >
-          <Svg
+          {/* <Svg
             style={styles.svg}
             viewBox="0 0 16.00 16.00"
             preserveAspectRatio="none"
@@ -139,7 +172,7 @@ export default class Signup extends Component {
               isClosed={true}
               d="M16.00 7.00 L3.80 7.00 L9.40 1.40 L8.00 0.00 L0.00 8.00 L8.00 16.00 L9.40 14.60 L3.80 9.00 L16.00 9.00 L16.00 7.00 L16.00 7.00 Z"
             />
-          </Svg>
+          </Svg> */}
         </TouchableOpacity>
       </View>
     );
@@ -147,229 +180,229 @@ export default class Signup extends Component {
 }
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: 'rgba(255,255,255,1)',
     flex: 1
   },
   imageBg: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "100.00%",
-    width: "100.00%"
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '100.00%',
+    width: '100.00%'
   },
   bgScreen1: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "100.00%",
-    width: "100.00%",
-    overflow: "hidden",
-    backgroundColor: "transparent"
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '100.00%',
+    width: '100.00%',
+    overflow: 'hidden',
+    backgroundColor: 'transparent'
   },
   bgScreen: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
-    overflow: "hidden",
-    backgroundColor: "transparent",
+    overflow: 'hidden',
+    backgroundColor: 'transparent',
     right: 0,
     bottom: 0
   },
   button5: {
-    position: "absolute",
-    top: "7.50%",
-    left: "3.33%",
-    height: "2.50%",
-    width: "4.44%"
+    position: 'absolute',
+    top: '7.50%',
+    left: '3.33%',
+    height: '2.50%',
+    width: '4.44%'
   },
   shape: {
-    position: "absolute",
+    position: 'absolute',
     height: 16,
     width: 16,
-    top: "0.00%",
-    left: "0.00%",
-    backgroundColor: "transparent",
-    borderColor: "transparent"
+    top: '0.00%',
+    left: '0.00%',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
   },
   buttonEmail: {
-    position: "absolute",
-    top: "32.50%",
-    left: "4.44%",
-    height: "7.50%",
-    width: "91.11%"
+    position: 'absolute',
+    top: '32.50%',
+    left: '4.44%',
+    height: '7.50%',
+    width: '91.11%'
   },
   buttonBg: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "100.00%",
-    width: "100.00%",
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '100.00%',
+    width: '100.00%',
     borderRadius: 2,
-    backgroundColor: "rgba(153,153,153,0.1)"
+    backgroundColor: 'rgba(153,153,153,0.1)'
   },
   fill186: {
-    position: "absolute",
-    height: "37.50%",
-    width: "7.32%",
-    top: "31.25%",
-    left: "87.80%",
-    backgroundColor: "transparent",
-    borderColor: "transparent"
+    position: 'absolute',
+    height: '37.50%',
+    width: '7.32%',
+    top: '31.25%',
+    left: '87.80%',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
   },
   buttonUseName: {
-    position: "absolute",
-    top: "22.50%",
-    left: "4.44%",
-    height: "7.50%",
-    width: "91.11%"
+    position: 'absolute',
+    top: '22.50%',
+    left: '4.44%',
+    height: '7.50%',
+    width: '91.11%'
   },
   buttonBg1: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "100.00%",
-    width: "100.00%",
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '100.00%',
+    width: '100.00%',
     borderRadius: 2,
-    backgroundColor: "rgba(153,153,153,0.1)"
+    backgroundColor: 'rgba(153,153,153,0.1)'
   },
   userName: {
-    position: "absolute",
-    top: "25.00%",
-    left: "89.02%",
-    height: "50.00%",
-    width: "5.18%"
+    position: 'absolute',
+    top: '25.00%',
+    left: '89.02%',
+    height: '50.00%',
+    width: '5.18%'
   },
   fill177: {
-    position: "absolute",
-    height: "100.00%",
-    width: "100.00%",
-    top: "0.00%",
-    left: "0.00%",
-    backgroundColor: "transparent",
-    borderColor: "transparent"
+    position: 'absolute',
+    height: '100.00%',
+    width: '100.00%',
+    top: '0.00%',
+    left: '0.00%',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
   },
   buttonPass: {
-    position: "absolute",
-    top: "42.50%",
-    left: "4.44%",
-    height: "7.50%",
-    width: "91.11%"
+    position: 'absolute',
+    top: '42.50%',
+    left: '4.44%',
+    height: '7.50%',
+    width: '91.11%'
   },
   buttonBg2: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "100.00%",
-    width: "100.00%",
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '100.00%',
+    width: '100.00%',
     borderRadius: 2,
-    backgroundColor: "rgba(153,153,153,0.1)"
+    backgroundColor: 'rgba(153,153,153,0.1)'
   },
   fill174: {
-    position: "absolute",
-    height: "50.00%",
-    width: "4.57%",
-    top: "25.00%",
-    left: "89.33%",
-    backgroundColor: "transparent",
-    borderColor: "transparent"
+    position: 'absolute',
+    height: '50.00%',
+    width: '4.57%',
+    top: '25.00%',
+    left: '89.33%',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
   },
   buttonPassCopy: {
-    position: "absolute",
-    top: "52.50%",
-    left: "4.44%",
-    height: "7.50%",
-    width: "91.11%"
+    position: 'absolute',
+    top: '52.50%',
+    left: '4.44%',
+    height: '7.50%',
+    width: '91.11%'
   },
   buttonBg3: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "100.00%",
-    width: "100.00%",
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '100.00%',
+    width: '100.00%',
     borderRadius: 2,
-    backgroundColor: "rgba(153,153,153,0.1)"
+    backgroundColor: 'rgba(153,153,153,0.1)'
   },
   path2: {
-    position: "absolute",
-    height: "25.02%",
-    width: "5.03%",
-    top: "38.02%",
-    left: "89.10%",
-    backgroundColor: "transparent",
-    borderColor: "transparent"
+    position: 'absolute',
+    height: '25.02%',
+    width: '5.03%',
+    top: '38.02%',
+    left: '89.10%',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
   },
   buttonSignUp: {
-    position: "absolute",
-    top: "62.50%",
-    left: "4.44%",
-    height: "7.50%",
-    width: "91.11%"
+    position: 'absolute',
+    top: '62.50%',
+    left: '4.44%',
+    height: '7.50%',
+    width: '91.11%'
   },
   buttonBg4: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.01%",
-    height: "100.00%",
-    width: "99.99%",
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.01%',
+    height: '100.00%',
+    width: '99.99%',
     borderRadius: 2,
-    backgroundColor: "transparent"
+    backgroundColor: 'transparent'
   },
   signUp: {
-    position: "absolute",
-    top: "33.33%",
-    left: "5.49%",
-    height: "33.33%",
-    width: "88.92%",
-    backgroundColor: "transparent",
-    textAlign: "center",
-    color: "rgba(255,255,255,1)",
+    position: 'absolute',
+    top: '33.33%',
+    left: '5.49%',
+    height: '33.33%',
+    width: '88.92%',
+    backgroundColor: 'transparent',
+    textAlign: 'center',
+    color: 'rgba(255,255,255,1)',
     fontSize: 14,
     letterSpacing: 0.5
   },
   statusBarBg: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "3.75%",
-    width: "100.00%",
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '3.75%',
+    width: '100.00%',
     opacity: 0.2,
-    backgroundColor: "rgba(0,0,0,1)",
-    display: "none"
+    backgroundColor: 'rgba(0,0,0,1)',
+    display: 'none'
   },
 
   logoMeterialThemeUiUx: {
-    position: "absolute",
-    top: "13.75%",
-    left: "7.22%",
-    height: "5.00%",
-    width: "85.56%"
+    position: 'absolute',
+    top: '13.75%',
+    left: '7.22%',
+    height: '5.00%',
+    width: '85.56%'
   },
   createYourAccount: {
-    position: "absolute",
-    top: "0.00%",
-    left: "0.00%",
-    height: "100.00%",
-    width: "100.00%",
-    backgroundColor: "transparent",
+    position: 'absolute',
+    top: '0.00%',
+    left: '0.00%',
+    height: '100.00%',
+    width: '100.00%',
+    backgroundColor: 'transparent',
     lineHeight: 32,
-    textAlign: "center",
-    color: "rgba(67,72,76,1)",
+    textAlign: 'center',
+    color: 'rgba(67,72,76,1)',
     fontSize: 24
   },
   button6: {
-    top: "7.50%",
-    left: "3.33%",
-    width: "4.44%",
-    height: "2.50%",
-    position: "absolute"
+    top: '7.50%',
+    left: '3.33%',
+    width: '4.44%',
+    height: '2.50%',
+    position: 'absolute'
   },
   svg: {
-    top: "0.00%",
-    left: "0.00%",
+    top: '0.00%',
+    left: '0.00%',
     width: 16,
     height: 16,
-    position: "absolute",
-    backgroundColor: "transparent",
-    borderColor: "transparent"
+    position: 'absolute',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
   }
 });

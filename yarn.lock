@@ -514,6 +514,16 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
+"@builderx/icons@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@builderx/icons/-/icons-0.1.6.tgz#f0e4cedaac2159f5c42969dd263919d97e672640"
+  dependencies:
+    react-native-vector-icons "^4.3.0"
+
+"@builderx/utils@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@builderx/utils/-/utils-0.1.6.tgz#6ef1060377479b74564699f5dc44683f9937cceb"
+
 "@cityofzion/neon-js@^3.10.1":
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/@cityofzion/neon-js/-/neon-js-3.11.2.tgz#1c86e082f8e96c002f6d22994843df641de5982b"
@@ -5826,6 +5836,10 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
+lodash@^4.17.11:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+
 logfmt@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/logfmt/-/logfmt-1.2.1.tgz#0e99838eb3a87fb6272d6d2b4fc327b95a29abee"
@@ -7432,6 +7446,14 @@ react-native-svg@6.2.2:
     lodash "^4.16.6"
     pegjs "^0.10.0"
 
+react-native-svg@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-7.1.2.tgz#ccc7676c5181945e7d1122b763f66b98fa9cdbfd"
+  dependencies:
+    color "^2.0.1"
+    lodash "^4.16.6"
+    pegjs "^0.10.0"
+
 react-native-tab-view@^0.0.77:
   version "0.0.77"
   resolved "http://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-0.0.77.tgz#11ceb8e7c23100d07e628dc151b57797524d00d4"
@@ -7447,6 +7469,14 @@ react-native-tab-view@^1.0.0:
 react-native-vector-icons@4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.5.0.tgz#6b95619e64f62f05f579f74a01fe5640df95158b"
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.5.10"
+    yargs "^8.0.2"
+
+react-native-vector-icons@^4.3.0:
+  version "4.6.0"
+  resolved "http://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.5.10"
