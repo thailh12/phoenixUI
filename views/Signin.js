@@ -24,11 +24,30 @@ class SignIn extends React.Component {
       res === 'true' ? this.props.navigation.navigate('App') : null;
     });
   }
-  async handleLogin() {
-    // TODO call API to get token and set to AsyncStore
-    await AsyncStorage.setItem('login', 'true');
+  async handleLogin(data) {
+    console.log(data);
     const navigation = this.props.navigation;
-    navigation.navigate('App');
+    // TODO call API to get token and set to AsyncStore
+    await fetch('http://10.83.1.201:3001/signin', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        res.json().then(result => {
+          console.log(result);
+          if (res.ok) {
+            AsyncStorage.setItem('token', result.token);
+            AsyncStorage.setItem('user', JSON.stringify(result));
+            AsyncStorage.setItem('login', 'true');
+            navigation.navigate('App');
+          }
+        });
+      })
+      .catch(e => console.log('error', e));
   }
   state = {
     username: false,
@@ -53,7 +72,7 @@ class SignIn extends React.Component {
           }}
         />
         <View style={styles.button}>
-          <Button onPress={() => this.handleLogin()} title="Login " />
+          <Button onPress={() => this.handleLogin(this.state)} title="Login " />
         </View>
       </View>
     );

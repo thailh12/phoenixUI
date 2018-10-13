@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
+import PTRView from 'react-native-pull-to-refresh';
 
 class Trading extends React.Component {
   componentWillMount() {
@@ -45,38 +46,43 @@ class Trading extends React.Component {
     // TODO call api to make a trading with id
     console.log('traded');
   }
+  refresh() {
+    // call api to refresh
+  }
   render() {
     return (
-      <View style={styles.container}>
-        {this.state.request.map((trade, index) => {
-          return (
-            <TouchableOpacity
-              style={styles.card}
-              key={index}
-              onPress={() => {
-                this.handleTrading();
-              }}
-            >
-              <Card>
-                <View>
-                  <Text>
-                    {trade.name}
-                    {'\t'}
-                    {trade.amount}
-                  </Text>
-                </View>
-                <View>
-                  <Text>
-                    {trade.need}
-                    {'\t'}
-                    {trade.require}
-                  </Text>
-                </View>
-              </Card>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
+      <PTRView onRefresh={() => this.refresh()}>
+        <View style={styles.container}>
+          {this.state.request.map((trade, index) => {
+            return (
+              <TouchableOpacity
+                style={styles.card}
+                key={index}
+                onPress={() => {
+                  this.handleTrading();
+                }}
+              >
+                <Card>
+                  <View>
+                    <Text>
+                      {trade.name}
+                      {'\t'}
+                      {trade.amount}
+                    </Text>
+                  </View>
+                  <View>
+                    <Text>
+                      {trade.need}
+                      {'\t'}
+                      {trade.require}
+                    </Text>
+                  </View>
+                </Card>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      </PTRView>
     );
   }
 }

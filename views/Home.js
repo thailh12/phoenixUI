@@ -8,6 +8,8 @@ import {
   StatusBar,
   ScrollView
 } from 'react-native';
+import PTRView from 'react-native-pull-to-refresh';
+
 import { Button } from 'react-native-elements';
 import { Icon, Card } from 'react-native-elements';
 import Voucher from './Voucher';
@@ -55,6 +57,9 @@ class Home extends React.PureComponent {
       }
     ]
   };
+  refresh() {
+    // call api to refresh
+  }
   renderItem({ item }) {
     return (
       <Voucher
@@ -70,74 +75,76 @@ class Home extends React.PureComponent {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <View style={styles.button}>
-          <Icon
-            key={1}
-            raised
-            name="qrcode"
-            type="font-awesome"
-            color="#000"
-            onPress={() => this.props.navigation.navigate('Scan')}
-          />
-          <Text>The Phoenix</Text>
-          <Icon
-            key={2}
-            raised
-            name="user-circle"
-            type="font-awesome"
-            color="#000"
-            onPress={() => this.props.navigation.navigate('Profile')}
-          />
-        </View>
-        <View style={styles.Carousel}>
-          <Carousel
-            layout={'default'}
-            data={this.state.voucher}
-            renderItem={this.renderItem}
-            sliderHeight={500}
-            sliderWidth={sliderWidth}
-            itemWidth={sliderWidth}
-          />
-        </View>
-        <Text>Earn Point</Text>
-        <View style={styles.Card}>
-          <Card
-            containerStyle={{
-              height: 200
-            }}
-            image={require('../assets/cardImage11.jpg')}
-          >
-            <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
-          </Card>
-          <Card
-            containerStyle={{
-              height: 200
-            }}
-            image={require('../assets/cardImage11.jpg')}
-          >
-            <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
-          </Card>
-        </View>
-        <View style={styles.Card}>
-          <Card
-            containerStyle={{
-              height: 200
-            }}
-            image={require('../assets/cardImage11.jpg')}
-          >
-            <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
-          </Card>
-          <Card
-            containerStyle={{
-              height: 200
-            }}
-            image={require('../assets/cardImage11.jpg')}
-          >
-            <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
-          </Card>
-        </View>
-      </ScrollView>
+      <PTRView onRefresh={() => this.refresh()}>
+        <ScrollView style={styles.container}>
+          <View style={styles.button}>
+            <Icon
+              key={1}
+              raised
+              name="qrcode"
+              type="font-awesome"
+              color="#000"
+              onPress={() => this.props.navigation.navigate('Scan')}
+            />
+            <Text style={{ color: 'white', fontSize: 25 }}>The Phoenix</Text>
+            <Icon
+              key={2}
+              raised
+              name="user-circle"
+              type="font-awesome"
+              color="#000"
+              onPress={() => this.props.navigation.navigate('Profile')}
+            />
+          </View>
+          <View style={styles.Carousel}>
+            <Carousel
+              layout={'default'}
+              data={this.state.voucher}
+              renderItem={this.renderItem}
+              sliderHeight={500}
+              sliderWidth={sliderWidth}
+              itemWidth={sliderWidth}
+            />
+          </View>
+          <Text>Earn Point</Text>
+          <View style={styles.Card}>
+            <Card
+              containerStyle={{
+                height: 200
+              }}
+              image={require('../assets/cardImage11.jpg')}
+            >
+              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+            </Card>
+            <Card
+              containerStyle={{
+                height: 200
+              }}
+              image={require('../assets/cardImage11.jpg')}
+            >
+              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+            </Card>
+          </View>
+          <View style={styles.Card}>
+            <Card
+              containerStyle={{
+                height: 200
+              }}
+              image={require('../assets/cardImage11.jpg')}
+            >
+              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+            </Card>
+            <Card
+              containerStyle={{
+                height: 200
+              }}
+              image={require('../assets/cardImage11.jpg')}
+            >
+              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+            </Card>
+          </View>
+        </ScrollView>
+      </PTRView>
     );
   }
 }

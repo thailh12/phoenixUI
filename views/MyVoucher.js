@@ -5,10 +5,13 @@ import {
   StyleSheet,
   Platform,
   StatusBar,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 import UseVoucher from './UseVoucher';
+import PTRView from 'react-native-pull-to-refresh';
+import HistoryItem from './HistoryItem';
 const u = {
   a:
     'https://scontent.fhan4-1.fna.fbcdn.net/v/t1.0-9/32929951_800542730140845_6430125809494654976_n.jpg?_nc_cat=105&oh=37851c37609497c01ec0bec1d54c6238&oe=5C23DEBD'
@@ -56,24 +59,29 @@ class MyVoucher extends React.PureComponent {
       }
     ]
   };
-
+  refresh() {
+    // call api to refresh
+  }
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {this.state.myvoucher.map(item => {
-          return (
-            <UseVoucher
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              require={item.require}
-              //  image={item.image}
-              image={u.a}
-              code={item.code}
-            />
-          );
-        })}
-      </ScrollView>
+      <PTRView onRefresh={() => this.refresh()}>
+        <ScrollView style={styles.container}>
+          {this.state.myvoucher.map(item => {
+            return (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() =>
+                  this.props.navigation.navigate('Scan Voucher', {
+                    params: 'sdasfas'
+                  })
+                }
+              >
+                <HistoryItem onPress />
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+      </PTRView>
     );
   }
 }

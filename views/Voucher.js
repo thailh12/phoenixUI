@@ -59,7 +59,7 @@ class Voucher extends React.PureComponent {
 
         <View style={styles.constainer}>
           <Text style={{ color: '#fff', fontSize: 20, paddingTop: 50 }}>
-            {this.props.title}
+            GET YOUR VOUCHER NOW
           </Text>
         </View>
       </TouchableOpacity>

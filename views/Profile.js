@@ -15,9 +15,14 @@ import { Avatar, List, ListItem } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
 class Profile extends React.Component {
-  state = {
-    pushNotifications: true
-  };
+  async componentWillMount() {
+    let info = await AsyncStorage.getItem('user');
+    info = JSON.parse(info);
+    console.log(info.username);
+    this.setState(...this.state, info);
+    console.log(this.state);
+  }
+  state = { pushNotifications: true };
   onChangePushNotifications = () => {
     this.setState(state => ({
       pushNotifications: !state.pushNotifications
@@ -34,7 +39,11 @@ class Profile extends React.Component {
       <ScrollView>
         <View style={styles.container}>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('MyQR')}
+            onPress={() =>
+              this.props.navigation.navigate('MyQR', {
+                params: this.state.userId
+              })
+            }
             style={{
               alignItems: 'center'
             }}
@@ -46,7 +55,7 @@ class Profile extends React.Component {
                   'https://scontent.fhan4-1.fna.fbcdn.net/v/t1.0-9/32929951_800542730140845_6430125809494654976_n.jpg?_nc_cat=105&oh=37851c37609497c01ec0bec1d54c6238&oe=5C23DEBD'
               }}
             />
-            <Text>thailh</Text>
+            <Text>{this.state.username}</Text>
           </TouchableOpacity>
           <List>
             <ListItem
