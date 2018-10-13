@@ -9,7 +9,6 @@ class MyQR extends PureComponent {
   }
   render() {
     const data = this.props.navigation.getParam('params');
-    console.log(data);
     return (
       <View style={styles.container}>
         <QRCode

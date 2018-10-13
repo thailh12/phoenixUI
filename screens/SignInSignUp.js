@@ -16,7 +16,6 @@ export default class SignInSignUp extends React.PureComponent {
   state = { username: false, password: false };
 
   async onSignin(data) {
-    console.log(data);
     const navigation = this.props.navigation;
     // TODO call API to get token and set to AsyncStore
     await fetch('http://10.83.1.201:3001/signin', {
@@ -29,7 +28,6 @@ export default class SignInSignUp extends React.PureComponent {
     })
       .then(res => {
         res.json().then(result => {
-          console.log(result);
           if (res.ok) {
             AsyncStorage.setItem('token', result.token);
             AsyncStorage.setItem('user', JSON.stringify(result));
@@ -95,7 +93,6 @@ export default class SignInSignUp extends React.PureComponent {
         </View>
         <TouchableOpacity
           onPress={() => {
-            console.log('run');
             this.onSignin(this.state);
           }}
           style={styles.button7}

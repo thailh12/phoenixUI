@@ -14,7 +14,7 @@ import {
   FormInput,
   FormValidationMessage
 } from 'react-native-elements';
-
+import { api } from '../config';
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
@@ -25,10 +25,9 @@ class SignIn extends React.Component {
     });
   }
   async handleLogin(data) {
-    console.log(data);
     const navigation = this.props.navigation;
     // TODO call API to get token and set to AsyncStore
-    await fetch('http://10.83.1.201:3001/signin', {
+    await fetch(`${api}/signin`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

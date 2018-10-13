@@ -1,73 +1,87 @@
 import React, { PureComponent } from 'react';
-import { View, Text, Button, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  ScrollView,
+  AsyncStorage,
+  Alert
+} from 'react-native';
 import { Card } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-class ListVoucher extends PureComponent {
-  onGetVoucher() {}
+import { api } from '../config';
+import PTRView from 'react-native-pull-to-refresh';
+
+class ListVoucher extends React.Component {
+  state = {};
+
+  async onGetVoucher(data) {
+    await fetch(`${api}/customer/${10}/shop/${data}/voucher`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(
+      Alert.alert(
+        'Success',
+        'You got the voucher',
+        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+        { cancelable: true }
+      )
+    );
+  }
+  async refresh() {
+    let data;
+    await fetch(`${api}/customer/${10}/potentialVoucher`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      res
+        .json()
+        .then(list => {
+          this.setState({ list: list });
+        })
+        .catch(e => console.log(e));
+    });
+
+    this.forceUpdate();
+  }
   render() {
     return (
-      <ScrollView>
-        <Card title="HELLO WORLD" image={require('../assets/cardImage11.jpg')}>
-          <Text style={{ marginBottom: 10 }}>
-            The idea with React Native Elements is more about component
-            structure than actual design.
-          </Text>
-          <Button
-            icon={{ name: 'code' }}
-            backgroundColor="#03A9F4"
-            buttonStyle={{
-              borderRadius: 0,
-              marginLeft: 0,
-              marginRight: 0,
-              marginBottom: 0
-            }}
-            title="GET NOW"
-            onPress={() => {
-              this.onGetVoucher();
-            }}
-          />
-        </Card>
-        <Card title="HELLO WORLD" image={require('../assets/cardImage11.jpg')}>
-          <Text style={{ marginBottom: 10 }}>
-            The idea with React Native Elements is more about component
-            structure than actual design.
-          </Text>
-          <Button
-            icon={{ name: 'code' }}
-            backgroundColor="#03A9F4"
-            buttonStyle={{
-              borderRadius: 0,
-              marginLeft: 0,
-              marginRight: 0,
-              marginBottom: 0
-            }}
-            title="VIEW NOW"
-            onPress={() => {
-              this.onGetVoucher();
-            }}
-          />
-        </Card>
-        <Card title="HELLO WORLD" image={require('../assets/cardImage11.jpg')}>
-          <Text style={{ marginBottom: 10 }}>
-            The idea with React Native Elements is more about component
-            structure than actual design.
-          </Text>
-          <Button
-            icon={{ name: 'code' }}
-            backgroundColor="#03A9F4"
-            buttonStyle={{
-              borderRadius: 0,
-              marginLeft: 0,
-              marginRight: 0,
-              marginBottom: 0
-            }}
-            title="VIEW NOW"
-            onPress={() => {
-              this.onGetVoucher();
-            }}
-          />
-        </Card>
-      </ScrollView>
+      <PTRView onRefresh={() => this.refresh()}>
+        <ScrollView>
+          {this.state.list
+            ? this.state.list.map((item, index) => {
+                return (
+                  <Card
+                    key={index}
+                    title={item.name}
+                    image={require('../assets/cardImage11.jpg')}
+                  >
+                    <Text style={{ marginBottom: 10 }}>{item.discount}</Text>
+                    <Button
+                      backgroundColor="#03A9F4"
+                      buttonStyle={{
+                        borderRadius: 0,
+                        marginLeft: 0,
+                        marginRight: 0,
+                        marginBottom: 0
+                      }}
+                      title="GET NOW"
+                      onPress={() => {
+                        this.onGetVoucher(item.shopId);
+                      }}
+                    />
+                  </Card>
+                );
+              })
+            : null}
+        </ScrollView>
+      </PTRView>
     );
   }
 }

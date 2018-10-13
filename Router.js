@@ -95,7 +95,7 @@ export const tab = createBottomTabNavigator({
     navigationOptions: {
       headerStyle: styles.header,
 
-      title: 'Trading',
+      title: 'Exchange',
       tabBarIcon: <Icon name="ios-git-branch" size={20} color="#d2d5dd" />
     }
   },

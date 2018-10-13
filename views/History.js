@@ -1,27 +1,42 @@
-import React from 'react';
-import { View, Text, StyleSheet, Platform, StatusBar } from 'react-native';
-import { Icon, Card } from 'react-native-elements';
-import HistoryItem from './HistoryItem';
-import PTRView from 'react-native-pull-to-refresh';
+import React, { Component } from 'react';
+import {
+  Platform,
+  StatusBar,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions
+} from 'react-native';
+import { Card } from 'react-native-elements';
 
-class History extends React.PureComponent {
-  refresh() {
-    // call api to refresh
-  }
+export default class History extends Component {
   render() {
     return (
-      <PTRView onRefresh={() => this.refresh()}>
-        <View style={styles.container}>
-          <HistoryItem />
-        </View>
-      </PTRView>
+      <View style={styles.container}>
+        <Card>
+          <View style={{ flexDirection: 'row' }}>
+            <Image
+              style={{ height: 100, width: 100 }}
+              source={require('/home/lomis/Desktop/junction/phoenix/assets/cardImage11.jpg')}
+            />
+            <Text style={{ paddingLeft: 20 }}>BRAND NAME</Text>
+          </View>
+          <View>
+            <Text style={styles.text}>12:00 14/10/2018</Text>
+          </View>
+        </Card>
+      </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    flexDirection: 'column',
     paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+  },
+  text: {
+    top: -20,
+    textAlign: 'right'
   }
 });
-export default History;

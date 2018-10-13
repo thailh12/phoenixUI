@@ -1,102 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Card } from 'react-native-elements';
 import {
   View,
+  Image,
   Text,
   StyleSheet,
   Platform,
-  StatusBar,
-  TouchableOpacity
+  StatusBar
 } from 'react-native';
-import { Card, ListItem } from 'react-native-elements';
-import PTRView from 'react-native-pull-to-refresh';
 
-class Trading extends React.Component {
-  componentWillMount() {
-    // TODO call api to list trading request
-  }
-  state = {
-    request: [
-      {
-        name: 'point A',
-        need: 'point B',
-        amount: '50',
-        require: '60'
-      },
-      {
-        name: 'point A',
-        need: 'point B',
-        amount: '50',
-        require: '60'
-      },
-      {
-        name: 'point A',
-        need: 'point B',
-        amount: '50',
-        require: '60'
-      },
-      {
-        name: 'point A',
-        need: 'point B',
-        amount: '50',
-        require: '60'
-      }
-    ]
-  };
-  handleTrading(id) {
-    // TODO call api to make a trading with id
-    console.log('traded');
-  }
-  refresh() {
-    // call api to refresh
-  }
+export default class Trading extends Component {
   render() {
     return (
-      <PTRView onRefresh={() => this.refresh()}>
-        <View style={styles.container}>
-          {this.state.request.map((trade, index) => {
-            return (
-              <TouchableOpacity
-                style={styles.card}
-                key={index}
-                onPress={() => {
-                  this.handleTrading();
-                }}
-              >
-                <Card>
-                  <View>
-                    <Text>
-                      {trade.name}
-                      {'\t'}
-                      {trade.amount}
-                    </Text>
-                  </View>
-                  <View>
-                    <Text>
-                      {trade.need}
-                      {'\t'}
-                      {trade.require}
-                    </Text>
-                  </View>
-                </Card>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </PTRView>
+      <View style={styles.container}>
+        <Card>
+          <View style={{ flexDirection: 'row' }}>
+            <Image
+              style={{ height: 60, width: 60 }}
+              source={require('/home/lomis/Desktop/junction/phoenix/assets/43879115_1018504261643404_6550385692646572032_n.png')}
+            />
+            <Text style={{ paddingLeft: 20 }}>Exchange</Text>
+          </View>
+          <View style={{ flexDirection: 'row', bottom: 30 }}>
+            <Text style={{ paddingLeft: 70 }}>Point A: 50</Text>
+            <Text style={{ paddingLeft: 50 }}>Point B: 40</Text>
+          </View>
+        </Card>
+      </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
     paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
   },
-  car: {
-    flex: 1,
-
-    flexDirection: 'row'
+  text: {
+    top: -20,
+    textAlign: 'right'
   }
 });
-
-export default Trading;

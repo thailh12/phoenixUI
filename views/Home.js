@@ -6,7 +6,8 @@ import {
   Dimensions,
   Platform,
   StatusBar,
-  ScrollView
+  ScrollView,
+  AsyncStorage
 } from 'react-native';
 import PTRView from 'react-native-pull-to-refresh';
 
@@ -16,8 +17,7 @@ import Voucher from './Voucher';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { withNavigation } from 'react-navigation';
 const u = {
-  a:
-    'https://scontent.fhan4-1.fna.fbcdn.net/v/t1.0-9/32929951_800542730140845_6430125809494654976_n.jpg?_nc_cat=105&oh=37851c37609497c01ec0bec1d54c6238&oe=5C23DEBD'
+  a: '/home/lomis/Desktop/junction/phoenix/assets/cardImage11.jpg'
 };
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get(
   'window'
@@ -112,11 +112,12 @@ class Home extends React.PureComponent {
           <View style={styles.Card}>
             <Card
               containerStyle={{
-                height: 200
+                height: 200,
+                width: Dimensions.get('window') / 2
               }}
               image={require('../assets/cardImage11.jpg')}
             >
-              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+              <Text>The coffee shop</Text>
             </Card>
             <Card
               containerStyle={{
@@ -124,7 +125,7 @@ class Home extends React.PureComponent {
               }}
               image={require('../assets/cardImage11.jpg')}
             >
-              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+              <Text>The coffee shop</Text>
             </Card>
           </View>
           <View style={styles.Card}>
@@ -134,7 +135,7 @@ class Home extends React.PureComponent {
               }}
               image={require('../assets/cardImage11.jpg')}
             >
-              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+              <Text>The coffee shop</Text>
             </Card>
             <Card
               containerStyle={{
@@ -142,7 +143,7 @@ class Home extends React.PureComponent {
               }}
               image={require('../assets/cardImage11.jpg')}
             >
-              <Text style={{ marginBottom: 10 }}>The coffee shop</Text>
+              <Text>The coffee shop</Text>
             </Card>
           </View>
         </ScrollView>
@@ -155,12 +156,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
-
     // alignItems: 'center',
   },
   button: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#f48f42'
   },
@@ -169,9 +169,9 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height / 3
   },
   Card: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'space-around'
   }
 });
 export default Home;

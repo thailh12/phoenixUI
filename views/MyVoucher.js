@@ -13,6 +13,7 @@ import { Icon } from 'react-native-elements';
 import UseVoucher from './UseVoucher';
 import PTRView from 'react-native-pull-to-refresh';
 import HistoryItem from './HistoryItem';
+import { api } from '../config';
 const u = {
   a:
     'https://scontent.fhan4-1.fna.fbcdn.net/v/t1.0-9/32929951_800542730140845_6430125809494654976_n.jpg?_nc_cat=105&oh=37851c37609497c01ec0bec1d54c6238&oe=5C23DEBD'
@@ -25,25 +26,27 @@ class MyVoucher extends React.PureComponent {
     myvoucher: [
       {
         id: '1',
+        discount: 20,
         title: 'Discount 30%',
-        require: '200 point',
         image: '',
-        code: 'AKdjslkhflsak'
+        code: 'AKdjslkhflsak',
+        shopName: 'Bug tea'
       },
 
       {
         id: '3',
+        discount: 30,
         title: 'Discount 20%',
-        require: '300 point',
         image: '',
-        code: 'AK1235djslkhflsak'
+        code: 'AK1235djslkhflsak',
+        shopName: 'Debug tea'
       }
     ]
   };
   async refresh() {
     let id = await AsyncStorage.getItem('user');
     id = JSON.parse(id);
-    await fetch(`http://10.83.1.201:3001/customer/${id.userId}/voucher`, {
+    await fetch(`${api}/customer/${id.info.userId}/voucher`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -51,7 +54,6 @@ class MyVoucher extends React.PureComponent {
       }
     }).then(res => {
       res.json().then(result => {
-        console.log(result);
         this.setState({ myvoucher: result });
       });
     });
@@ -60,17 +62,20 @@ class MyVoucher extends React.PureComponent {
     return (
       <PTRView onRefresh={() => this.refresh()}>
         <ScrollView style={styles.container}>
-          {this.state.myvoucher.map(item => {
+          {this.state.myvoucher.map((item, index) => {
             return (
               <TouchableOpacity
-                key={item.id}
+                key={index}
                 onPress={() =>
                   this.props.navigation.navigate('Scan Voucher', {
                     params: item.code
                   })
                 }
               >
-                <HistoryItem />
+                <HistoryItem
+                  discount={item.discount}
+                  shopname={item.shopName}
+                />
               </TouchableOpacity>
             );
           })}

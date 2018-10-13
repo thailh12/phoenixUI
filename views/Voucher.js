@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Dimensions,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 import { Card, Button, Header } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
@@ -20,19 +21,7 @@ class Voucher extends React.PureComponent {
   handleGetVoucher(id) {
     Alert.alert('Success');
   }
-  hanldeVoucherClick() {
-    // call api to get voucher
-    // Alert.alert(
-    //   'Confirm',
-    //   `${a.require}`,
-    //   [
-    //     {
-    //       text: 'Cancel'
-    //     },
-    //     { text: 'OK', onPress: () => this.handleGetVoucher(a.id) }
-    //   ],
-    //   { cancelable: false }
-    // );
+  hanldeVoucherClick(data) {
     this.props.navigation.navigate('ListVoucher');
   }
 
@@ -40,7 +29,7 @@ class Voucher extends React.PureComponent {
     return (
       <TouchableOpacity
         style={styles.card}
-        onPress={() => this.hanldeVoucherClick(this.props)}
+        onPress={() => this.hanldeVoucherClick(this.props.user)}
       >
         <View
           style={{
@@ -53,7 +42,7 @@ class Voucher extends React.PureComponent {
               height: Dimensions.get('window').height / 2,
               resizeMode: 'cover'
             }}
-            source={{ uri: this.props.image }}
+            source={require(`/home/lomis/Desktop/junction/phoenix/assets/cardImage11.jpg`)}
           />
         </View>
 

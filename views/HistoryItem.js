@@ -14,8 +14,10 @@ export default class card11 extends Component {
       <View style={[styles.root, this.props.style]}>
         <View style={styles.cardBody}>
           <View style={styles.bodyContent}>
-            <Text style={styles.titleStyle}>Title goes here</Text>
-            <Text style={styles.subtitleStyle}>Subtitle here</Text>
+            <Text style={styles.titleStyle}>
+              Discount {this.props.discount}%
+            </Text>
+            <Text style={styles.subtitleStyle}>{this.props.shopname}</Text>
           </View>
           <Image
             style={styles.cardItemImagePlace}
@@ -44,6 +46,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   cardBody: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
