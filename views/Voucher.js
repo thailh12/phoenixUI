@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   AsyncStorage
 } from 'react-native';
+import { Center } from '@builderx/utils';
 import { Card, Button, Header } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 const u = {
@@ -47,7 +48,12 @@ class Voucher extends React.PureComponent {
         </View>
 
         <View style={styles.constainer}>
-          <Text style={{ color: '#fff', fontSize: 20, paddingTop: 50 }}>
+          <Text
+            style={{
+              color: '#000',
+              fontSize: 24
+            }}
+          >
             GET YOUR VOUCHER NOW
           </Text>
         </View>
@@ -57,7 +63,7 @@ class Voucher extends React.PureComponent {
 }
 const styles = StyleSheet.create({
   constainer: {
-    marginLeft: 50,
+    top: 50,
     alignItems: 'center',
     justifyContent: 'center'
   },

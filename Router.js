@@ -23,21 +23,21 @@ import Login from './views/Login';
 import SigInSignUp from './screens/SignInSignUp';
 import SignUp from './screens/Signup';
 import Walkthrough from './screens/Walkthrough';
+import MyPoint from './views/MyPoint';
+
 let styles = StyleSheet.create({
   header: {
     backgroundColor: '#f48f42'
   }
 });
 
-const profile = createSwitchNavigator(
-  {
-    Profile: Profile,
-    MyQR: MyQR
-  },
-  {
-    initialRouteName: 'Profile'
+const profile = createSwitchNavigator({
+  Profile: Profile,
+  MyQR: MyQR,
+  Point: {
+    screen: MyPoint
   }
-);
+});
 
 export const stack = createStackNavigator({
   Home: {

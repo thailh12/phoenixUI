@@ -18,9 +18,7 @@ class Profile extends React.Component {
   async componentWillMount() {
     let info = await AsyncStorage.getItem('user');
     info = JSON.parse(info);
-    console.log(info.username);
     this.setState(...this.state, info);
-    console.log(this.state);
   }
   state = { pushNotifications: true };
   onChangePushNotifications = () => {
@@ -66,8 +64,8 @@ class Profile extends React.Component {
               onSwitch={this.onChangePushNotifications}
             />
             <ListItem
-              title="Point"
-              onPress={() => this.props.navigation.navigate('Scan')}
+              title="My Point"
+              onPress={() => this.props.navigation.navigate('Point')}
             />
             <ListItem
               title="Transaction"

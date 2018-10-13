@@ -14,7 +14,9 @@ import PTRView from 'react-native-pull-to-refresh';
 
 class ListVoucher extends React.Component {
   state = {};
-
+  componentWillMount() {
+    this.refresh();
+  }
   async onGetVoucher(data) {
     await fetch(`${api}/customer/${10}/shop/${data}/voucher`, {
       method: 'POST',
