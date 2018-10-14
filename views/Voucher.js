@@ -43,14 +43,14 @@ class Voucher extends React.PureComponent {
               height: Dimensions.get('window').height / 2,
               resizeMode: 'cover'
             }}
-            source={require(`/home/lomis/Desktop/junction/phoenix/assets/cardImage11.jpg`)}
+            source={require(`/home/lomis/Desktop/junction/phoenix/assets/carosuel1.jpg`)}
           />
         </View>
 
         <View style={styles.constainer}>
           <Text
             style={{
-              color: '#000',
+              color: '#fff',
               fontSize: 24
             }}
           >
@@ -63,7 +63,7 @@ class Voucher extends React.PureComponent {
 }
 const styles = StyleSheet.create({
   constainer: {
-    top: 50,
+    top: 100,
     alignItems: 'center',
     justifyContent: 'center'
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { api } from '../config';
-import { Button } from 'react-native-elements';
+import { Button, Card } from 'react-native-elements';
 import PTRView from 'react-native-pull-to-refresh';
 
 class MyPoint extends React.PureComponent {
@@ -27,10 +27,10 @@ class MyPoint extends React.PureComponent {
           <View style={styles.constainer}>
             {this.state.result.map((item, index) => {
               return (
-                <View style={styles.card} key={index}>
+                <Card style={styles.card} key={index}>
                   <Text>{item.name}</Text>
                   <Text>{item.currentAmount}</Text>
-                </View>
+                </Card>
               );
             })}
           </View>
@@ -46,8 +46,7 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   card: {
-    flexDirection: 'column',
-    alignItems: 'center'
+    flexDirection: 'column'
   }
 });
 

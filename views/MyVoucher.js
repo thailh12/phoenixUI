@@ -30,7 +30,7 @@ class MyVoucher extends React.PureComponent {
         title: 'Discount 30%',
         image: '',
         code: 'AKdjslkhflsak',
-        shopName: 'Bug tea'
+        shopName: 'Bug shop'
       },
 
       {
@@ -39,7 +39,7 @@ class MyVoucher extends React.PureComponent {
         title: 'Discount 20%',
         image: '',
         code: 'AK1235djslkhflsak',
-        shopName: 'Debug tea'
+        shopName: 'Debug shop'
       }
     ]
   };

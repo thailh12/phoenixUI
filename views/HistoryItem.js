@@ -21,7 +21,7 @@ export default class card11 extends Component {
           </View>
           <Image
             style={styles.cardItemImagePlace}
-            source={require('../assets/cardImage11.jpg')}
+            source={require('/home/lomis/Desktop/junction/phoenix/assets/voucher1.jpg')}
           />
         </View>
       </View>

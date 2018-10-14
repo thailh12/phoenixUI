@@ -62,9 +62,11 @@ class ListVoucher extends React.Component {
                   <Card
                     key={index}
                     title={item.name}
-                    image={require('../assets/cardImage11.jpg')}
+                    image={require(`../assets/voucher1.jpg`)}
                   >
-                    <Text style={{ marginBottom: 10 }}>{item.discount}</Text>
+                    <Text style={{ marginBottom: 10 }}>
+                      Discount {item.discount}%
+                    </Text>
                     <Button
                       backgroundColor="#03A9F4"
                       buttonStyle={{

@@ -16,9 +16,7 @@ import { Icon, Card } from 'react-native-elements';
 import Voucher from './Voucher';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { withNavigation } from 'react-navigation';
-const u = {
-  a: '/home/lomis/Desktop/junction/phoenix/assets/cardImage11.jpg'
-};
+
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get(
   'window'
 );
@@ -68,7 +66,7 @@ class Home extends React.PureComponent {
         title={item.title}
         require={item.require}
         //  image={item.image}
-        image={u.a}
+        image={'/home/lomis/Desktop/junction/phoenix/assets/carosuel1.jpg'}
       />
     );
   }
@@ -86,7 +84,7 @@ class Home extends React.PureComponent {
               color="#000"
               onPress={() => this.props.navigation.navigate('Scan')}
             />
-            <Text style={{ color: 'white', fontSize: 25 }}>The Phoenix</Text>
+            <Text style={{ color: 'white', fontSize: 25 }}>Phoenix</Text>
             <Icon
               key={2}
               raised
@@ -115,7 +113,7 @@ class Home extends React.PureComponent {
                 height: 200,
                 width: Dimensions.get('window') / 2
               }}
-              image={require('../assets/cardImage11.jpg')}
+              image={require('../assets/earn1.jpg')}
             >
               <Text>The coffee shop</Text>
             </Card>
@@ -123,7 +121,7 @@ class Home extends React.PureComponent {
               containerStyle={{
                 height: 200
               }}
-              image={require('../assets/cardImage11.jpg')}
+              image={require('../assets/earn2.jpg')}
             >
               <Text>The coffee shop</Text>
             </Card>
@@ -133,7 +131,7 @@ class Home extends React.PureComponent {
               containerStyle={{
                 height: 200
               }}
-              image={require('../assets/cardImage11.jpg')}
+              image={require('../assets/earn3.jpg')}
             >
               <Text>The coffee shop</Text>
             </Card>
@@ -141,9 +139,9 @@ class Home extends React.PureComponent {
               containerStyle={{
                 height: 200
               }}
-              image={require('../assets/cardImage11.jpg')}
+              image={require('../assets/earn4.jpg')}
             >
-              <Text>The coffee shop</Text>
+              <Text>The clothes shop</Text>
             </Card>
           </View>
         </ScrollView>

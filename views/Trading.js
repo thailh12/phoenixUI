@@ -90,7 +90,7 @@ export default class Trading extends Component {
                     <View style={{ flexDirection: 'row' }}>
                       <Image
                         style={{ height: 60, width: 60 }}
-                        source={require('/home/lomis/Desktop/junction/phoenix/assets/43879115_1018504261643404_6550385692646572032_n.png')}
+                        source={require('/home/lomis/Desktop/junction/phoenix/assets/illustration.png')}
                       />
                       <Text style={{ paddingLeft: 20 }}>Exchange</Text>
                     </View>
